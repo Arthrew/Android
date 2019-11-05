@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/tiradaDado"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="realizar tirada"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:layout_margin="@android:dimen/app_icon_size">
+
+    </Button>
+
+    <ImageView
+        android:id="@+id/imagen_dado"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@android:dimen/app_icon_size"
+        android:src="@drawable/dado_uno">
+    </ImageView>
+
+</LinearLayout>
