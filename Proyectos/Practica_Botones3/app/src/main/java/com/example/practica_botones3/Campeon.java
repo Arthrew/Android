@@ -17,7 +17,7 @@ public class Campeon extends AppCompatActivity implements View.OnClickListener {
     TextView parrillaCon;
     EditText concursante;
     ArrayList concursantes;
-    Boolean estado_parrilla;
+    Boolean estado_parrilla = false;
     int posicion = 0;
 
     @Override
@@ -47,25 +47,37 @@ public class Campeon extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.agregar_con:
                 if (!concursante.getText().toString().isEmpty()) {
-                    String con = concursante.getText().toString();
-                    concursantes.add(posicion, con);
-                    parrillaCon.append(con + "\n");
-                    concursante.setText("");
-                    System.out.println(concursantes);
-                    posicion++;
-                    estado_parrilla = true;
+                    if (estado_parrilla == false){
+                        parrillaCon.setText("");
+                        String con = concursante.getText().toString();
+                        concursantes.add(posicion, con);
+                        parrillaCon.append(con + "\n");
+                        concursante.setText("");
+                        System.out.println(concursantes);
+                        estado_parrilla = true;
+                        posicion++;
+                    }else{
+                        String con = concursante.getText().toString();
+                        concursantes.add(posicion, con);
+                        parrillaCon.append(con + "\n");
+                        concursante.setText("");
+                        System.out.println(concursantes);
+                        estado_parrilla = true;
+                        posicion++;
+                    }
+
                 } else {
                     Toast.makeText(getApplicationContext(),"Introduce concursante",Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.ganador:
-                if (!parrillaCon.getText().toString().isEmpty()) {
+                if (!concursantes.isEmpty()) {
                     int aleatorio = (int) (Math.random() * concursantes.size());
                     String prueba = concursantes.get(aleatorio).toString();
                     parrillaCon.setText("El ganador es -" + prueba + "-");
                     concursantes.clear();
-                    posicion = 0;
                     estado_parrilla = false;
+                    posicion = 0;
                 }else{
                     Toast.makeText(getApplicationContext(),"No hay concursantes",Toast.LENGTH_SHORT).show();
                 }

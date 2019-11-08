@@ -12,7 +12,7 @@ public class Dados extends AppCompatActivity implements View.OnClickListener {
 
     private Button tirada;
     private ImageView imagenDado;
-    int[] posibilidades = {R.drawable.dado_uno, R.drawable.dado_dos, R.drawable.dado_tres,R.drawable.dado_cuatro, R.drawable.dado_cinco, R.drawable.dado_seis};
+    int[] posibilidades = {R.drawable.dado_uno, R.drawable.dado_dos, R.drawable.dado_tres, R.drawable.dado_cuatro, R.drawable.dado_cinco, R.drawable.dado_seis};
 
 
     @Override
@@ -35,9 +35,8 @@ public class Dados extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        if (v == tirada){
-            int aleatorio = (int)(Math.random()*6);
-            imagenDado.setImageDrawable(getResources().getDrawable(posibilidades[aleatorio], null));
+        if (v == tirada) {
+            int aleatorio = (int) (Math.random() * 6);
             imagenDado.setImageResource(posibilidades[aleatorio]);
 
         }

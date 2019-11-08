@@ -18,6 +18,7 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
     CheckBox decimales_P;
     ImageButton Num_Obtener;
     TextView txt_resultado;
+    int[] numerosTotales = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,25 +70,37 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
                 }
                 break;
             case R.id.obtenerNum:
-                int numero = Integer.parseInt(numeros.getText().toString());
 
-                for (int i = 0;i<=numero;i++){
 
-                    if (minimo.isEnabled() && maximo.isEnabled()){
-                        min =Integer.parseInt(maximo.getText().toString());
-                        max =(Integer.parseInt(minimo.getText().toString()))- min;
-                        if (max>min){
-                            Toast.makeText(getApplicationContext(),"Introduce valores máximos y mínimos correctos",Toast.LENGTH_SHORT).show();
-                        }else {
-                            generado = (int) ((Math.random()) * max)+ min;
-                            txt_resultado.setText(String.valueOf(generado));
+
+                if(!numeros.getText().toString().isEmpty()) {
+
+                    txt_resultado.setText("");
+
+                    //Cuantos numeros se generan
+                    int numero = Integer.parseInt(numeros.getText().toString());
+
+                    //Imprimir numeros en el TextView con las condiciones
+                    for (int i = 0; i < numero; i++) {//
+
+                        if (!minimo.getText().toString().isEmpty() && !maximo.getText().toString().isEmpty()) {
+                            min = Integer.parseInt(maximo.getText().toString());
+                            max = (Integer.parseInt(minimo.getText().toString())) - min;
+                            if (max > min) {
+                                Toast.makeText(getApplicationContext(), "Introduce valores máximos y mínimos correctos", Toast.LENGTH_SHORT).show();
+                            } else {
+                                generado = (int) ((Math.random()) * max) + min;
+                                txt_resultado.append(String.valueOf(generado) + "\n");
+                            }
+                        } else {
+                            generado = (int) (Math.random() * 99999);
+                            txt_resultado.append(String.valueOf(generado) + "\n");
+
                         }
-                    }else {
-                        generado = (int)(Math.random()*99999);
-                        txt_resultado.setText(String.valueOf(generado));
 
                     }
-
+                }else {
+                    Toast.makeText(getApplicationContext(),"Introduce todos los datos",Toast.LENGTH_SHORT).show();
                 }
 
 
