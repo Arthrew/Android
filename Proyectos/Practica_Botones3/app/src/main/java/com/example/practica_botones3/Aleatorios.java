@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 public class Aleatorios extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,7 +23,8 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
     CheckBox permitirDecimales;
     ImageButton Num_Obtener;
     TextView txt_resultado;
-    Switch repetir;
+    Switch swt_repetir;
+    List<String> numeros_aleatorios = new ArrayList<String>();
     Hashtable<Integer, String> numerosTotales = new Hashtable<>();
 
     @Override
@@ -50,7 +52,7 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
         Num_Obtener = findViewById(R.id.obtenerNum);
         txt_resultado = findViewById(R.id.txt_resultado);
         numeros = findViewById(R.id.numeros);
-        repetir = findViewById(R.id.repetir);
+        swt_repetir = findViewById(R.id.repetir);
     }
 
     @Override
@@ -116,9 +118,21 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
 
                                     }
                                 } else {
-                                    generado = (int) ((Math.random()) * (max + 1 - min)) + min;
-                                    numerosTotales.put(i, Integer.toString(generado));
-                                    txt_resultado.append(numerosTotales.get(i) + " ");
+                                    if (swt_repetir.isChecked()) {
+                                        generado = (int) ((Math.random()) * (max + 1 - min)) + min;
+                                        numeros_aleatorios.add(i,Integer.toString(generado));
+                                        for (generado:numeros_aleatorios) {
+                                            generado = (int) ((Math.random()) * (max + 1 - min)) + min;//ARRREGLAR REPETICIÓN
+                                            numeros_aleatorios.add(i,Integer.toString(generado));
+                                        }
+
+                                    } else {
+                                        generado = (int) ((Math.random()) * (max + 1 - min)) + min;
+                                        numerosTotales.put(i, Integer.toString(generado));
+                                        txt_resultado.append(numerosTotales.get(i) + " ");
+
+                                    }
+
 
                                 }
                             }
