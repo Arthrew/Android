@@ -53,7 +53,6 @@ public class Campeon extends AppCompatActivity implements View.OnClickListener {
                         concursantes.add(posicion, con);
                         parrillaCon.append(con + "\n");
                         concursante.setText("");
-                        System.out.println(concursantes);
                         estado_parrilla = true;
                         posicion++;
                     }else{
@@ -61,7 +60,6 @@ public class Campeon extends AppCompatActivity implements View.OnClickListener {
                         concursantes.add(posicion, con);
                         parrillaCon.append(con + "\n");
                         concursante.setText("");
-                        System.out.println(concursantes);
                         estado_parrilla = true;
                         posicion++;
                     }

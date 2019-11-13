@@ -1,6 +1,8 @@
 package com.example.practica_botones3;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -30,6 +32,10 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
         setContentView(R.layout.activity_aleatorios);
         instancias();
         acciones();
@@ -118,18 +124,29 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
 
                                     }
                                 } else {
-                                    if (swt_repetir.isChecked()) {
+                                    if (!swt_repetir.isChecked()) {
                                         generado = (int) ((Math.random()) * (max + 1 - min)) + min;
-                                        numeros_aleatorios.add(i,Integer.toString(generado));
-                                        for (generado:numeros_aleatorios) {
-                                            generado = (int) ((Math.random()) * (max + 1 - min)) + min;//ARRREGLAR REPETICIÓN
-                                            numeros_aleatorios.add(i,Integer.toString(generado));
+                                        Log.v("TAG", String.valueOf(numerosTotales.contains(generado)));
+
+                                        if (numerosTotales.contains(generado)) {
+                                            do {
+                                                generado = (int) ((Math.random()) * (max + 1 - min)) + min;
+                                                Log.v("TAG", String.valueOf(generado));
+
+                                            } while (numerosTotales.contains(generado));
+
                                         }
+                                        numerosTotales.put(i, Integer.toString(generado));
+                                        //txt_resultado.append(numerosTotales.get(i) + " ");
+                                        //Log.v("TAG",String.valueOf(generado));
+
 
                                     } else {
-                                        generado = (int) ((Math.random()) * (max + 1 - min)) + min;
+
+
+                                        /*generado = (int) ((Math.random()) * (max + 1 - min)) + min;
                                         numerosTotales.put(i, Integer.toString(generado));
-                                        txt_resultado.append(numerosTotales.get(i) + " ");
+                                        txt_resultado.append(numerosTotales.get(i) + " ");*/
 
                                     }
 
@@ -167,5 +184,8 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
 
         }
 
+    }
+
+    private void control_repeticion() {
     }
 }
