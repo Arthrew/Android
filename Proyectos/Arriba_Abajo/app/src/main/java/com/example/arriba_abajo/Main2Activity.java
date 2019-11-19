@@ -13,6 +13,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     Button btn_Responder;
     EditText txt_Respuesta;
     final static String TAG_RESPUESTA = "respuesta";
+    int[] posibilidades = {R.drawable.c1,R.drawable.c2,R.drawable.c3,R.drawable.c4,R.drawable.c5,R.drawable.c6,
+            R.drawable.c7,R.drawable.c8,R.drawable.c9,R.drawable.c10,R.drawable.c11,R.drawable.c12,R.drawable.c13};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
