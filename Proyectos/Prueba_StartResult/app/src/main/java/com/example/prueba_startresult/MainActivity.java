@@ -26,14 +26,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         acciones();
     }
 
-    private void acciones() {
-        btn_Pasar.setOnClickListener(this);
-    }
-
     private void instancias() {
         btn_Pasar = findViewById(R.id.btnPasar);
         texto_uno = findViewById(R.id.textoUno);
     }
+
+    private void acciones() {
+        btn_Pasar.setOnClickListener(this);
+    }
+
 
 
     //Espera el resultado
