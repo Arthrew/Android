@@ -39,7 +39,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     setResult(MainActivity.RES_COD_FAIL);
                 }else {
                     Intent iRespuesta = new Intent();
-                    iRespuesta.putExtra(TAG_RESPUESTA,txt_Respuesta.getText().toString());
+                        iRespuesta.putExtra(TAG_RESPUESTA,txt_Respuesta.getText().toString());
                     setResult(MainActivity.RES_COD_OK,iRespuesta);
                 }
                 finish();
