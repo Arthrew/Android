@@ -124,32 +124,9 @@ public class Aleatorios extends AppCompatActivity implements View.OnClickListene
 
                                     }
                                 } else {
-                                    if (!swt_repetir.isChecked()) {
-                                        generado = (int) ((Math.random()) * (max + 1 - min)) + min;
-                                        Log.v("TAG", String.valueOf(numerosTotales.contains(generado)));
-
-                                        if (numerosTotales.contains(generado)) {
-                                            do {
-                                                generado = (int) ((Math.random()) * (max + 1 - min)) + min;
-                                                Log.v("TAG", String.valueOf(generado));
-
-                                            } while (numerosTotales.contains(generado));
-
-                                        }
+                                    generado = (int) ((Math.random()) * (max + 1 - min)) + min;
                                         numerosTotales.put(i, Integer.toString(generado));
-                                        //txt_resultado.append(numerosTotales.get(i) + " ");
-                                        //Log.v("TAG",String.valueOf(generado));
-
-
-                                    } else {
-
-
-                                        /*generado = (int) ((Math.random()) * (max + 1 - min)) + min;
-                                        numerosTotales.put(i, Integer.toString(generado));
-                                        txt_resultado.append(numerosTotales.get(i) + " ");*/
-
-                                    }
-
+                                        txt_resultado.append(numerosTotales.get(i) + " ");
 
                                 }
                             }
