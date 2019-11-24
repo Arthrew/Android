@@ -7,13 +7,15 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.nio.file.Files;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9,
-            suma, resta, multiplicar, dividir, igual, punto, reinicio;
+            suma, resta, multiplicar, dividir, igual, punto, reinicio,
+            log, raiz, seno, coseno, tang;
     EditText tablon;
     Float valor1, valor2;
-    Boolean op_suma, op_resta, op_divison, op_multiplicacion;
     String operacion;
 
     @Override
@@ -33,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn9 = findViewById(R.id.btn9);
         suma = findViewById(R.id.suma);
         resta = findViewById(R.id.resta);
+        log = findViewById(R.id.log);
+        raiz = findViewById(R.id.raiz);
+        seno = findViewById(R.id.sin);
+        coseno = findViewById(R.id.cos);
+        tang = findViewById(R.id.tan);
         multiplicar = findViewById(R.id.multiplicar);
         dividir = findViewById(R.id.dividir);
         igual = findViewById(R.id.igual);
@@ -67,9 +74,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn0:
                 tablon.setText(tablon.getText() + "0");
                 break;
+
             case R.id.btn1:
                 tablon.setText(tablon.getText() + "1");
                 break;
+
             case R.id.btn2:
                 tablon.setText(tablon.getText() + "2");
                 break;
@@ -142,6 +151,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
 
+            case R.id.log:
+                if (tablon == null) {
+                    tablon.setText(null);
+                } else {
+                    tablon.setText("Log(");
+                    operacion = "log";
+                }
+                break;
+
+            case R.id.raiz:
+                if (tablon == null) {
+                    tablon.setText(null);
+                } else {
+                    tablon.setText("√(");
+                    operacion = "raiz";
+                }
+                break;
+
+            case R.id.sin:
+                if (tablon == null) {
+                    tablon.setText(null);
+                } else {
+                    tablon.setText("Sin(");
+                    operacion = "seno";
+                }
+                break;
+
+            case R.id.cos:
+                if (tablon == null) {
+                    tablon.setText(null);
+                } else {
+                    tablon.setText("Cos(");
+                    operacion = "coseno";
+                }
+                break;
+
+            case R.id.tan:
+                if (tablon == null) {
+                    tablon.setText(null);
+                } else {
+                    tablon.setText("Tan(");
+                    operacion = "tang";
+                }
+                break;
+
             case R.id.igual:
                 valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
 
@@ -149,17 +203,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tablon.setText(valor1 + valor2 + "");
                     valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
 
-                }else if (operacion.equals("resta")) {
+                } else if (operacion.equals("resta")) {
                     tablon.setText(valor1 - valor2 + "");
                     valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
 
-                }else if (operacion.equals("multiplicar")) {
+                } else if (operacion.equals("multiplicar")) {
                     tablon.setText(valor1 * valor2 + "");
                     valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
 
-                }else if (operacion.equals("dividir")) {
+                } else if (operacion.equals("dividir")) {
                     tablon.setText(valor1 / valor2 + "");
                     valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
+
+
+                } else if (operacion.equals("log")) {
+                    /*
+                    tablon.setText(valor1 / valor2 + "");
+                    valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
+*/
+
+                } else if (operacion.equals("raiz")) {
+                    /*
+                    tablon.setText(valor1 / valor2 + "");
+                    valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
+                    */
+
+
+
+                } else if (operacion.equals("seno")) {
+                    /*
+                    tablon.setText(valor1 / valor2 + "");
+                    valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
+*/
+
+                } else if (operacion.equals("coseno")) {
+                    /*
+                    tablon.setText(valor1 / valor2 + "");
+                    valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
+                     */
+
+
+                } else if (operacion.equals("tang")) {
+                    /*
+                    tablon.setText(valor1 / valor2 + "");
+                    valor2 = Float.parseFloat(String.valueOf(tablon.getText()));
+
+                     */
 
                 }
                 break;
