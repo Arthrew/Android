@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.btnPasar:
-
                 Intent intent = new Intent(getApplicationContext(),Main2Activity.class);
                 startActivityForResult(intent,REQ_COD);
                 break;
